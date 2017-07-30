@@ -14,4 +14,15 @@ class Parking < ApplicationRecord
       errors.add(:end_at, "有金额就必有结束时间")
     end
   end
+
+  def duration
+    ( end_at - start_at ) / 60
+  end
+
+  def calculate_amount
+    if self.amount.blank? && self.start_at.present? && self.end_at.present?
+      self.amount = 9487
+
+    end
+  end
 end
