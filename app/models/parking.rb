@@ -25,8 +25,10 @@ class Parking < ApplicationRecord
       if duration <= 60
         self.amount = 200
       else
-        self.amount = 200 + ((duration - 60).to.f /30 ).ceil * 100
+        self.amount = 200 + ((duration - 60).to.f / 30 ).ceil * 100
       end
     end
   end
+
+  belongs_to :user, :optional => true
 end
